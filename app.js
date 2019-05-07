@@ -28,7 +28,7 @@
         const promise = auth.signInWithEmailAndPassword(email,pass);
         promise.catch(e => console.log(e.message));
     }); 
-
+    
     // Add signup event
     btnSignUp.addEventListener('click', e => {
          // Get email and pass
