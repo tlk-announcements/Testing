@@ -24,22 +24,30 @@
         const email = txtEmail.value;
         const pass = txtPassword.value;
         const auth = firebase.auth();
+
         //Sign in
         const promise = auth.signInWithEmailAndPassword(email,pass);
         promise.catch(e => console.log(e.message));
     }); 
-    
+
     // Add signup event
     btnSignUp.addEventListener('click', e => {
          // Get email and pass
          // TODO: Check for real emails 
          const email = txtEmail.value;
          const pass = txtPassword.value;
+         const confirmpass = txtConfirmPassword.value;
          const auth = firebase.auth();
          //Sign in
-         const promise = auth.createUserWithEmailAndPassword(email,pass);
-         promise
-            .catch(e => console.log(e.message));
+         if (pass != confirmpass) {
+            alert("Passwords are not the same. Please re-enter the same password in both. Passwords must be at least 6 characters long.");
+        }else if(pass.length < 6 || confirmpass.length < 6){
+            alert("Passwords must be at least 6 characters long.");
+        }else{
+            const promise = auth.createUserWithEmailAndPassword(email,pass);
+            promise.catch(e => console.log(e.message));
+        }
+        
     });
     
     btnLogout.addEventListener('click', e => {
