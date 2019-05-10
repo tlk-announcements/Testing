@@ -42,10 +42,9 @@
          //Sign in
          if (pass != confirmpass) {
             alert("Passwords are not the same. Please re-enter the same password in both. Passwords must be at least 6 characters long.");
-        } if (code != "d7") {
+        }else if (code != "d7") {
             alert("Wrong code. Try again.")
-        }
-        else if(pass.length < 6 || confirmpass.length < 6){
+        }else if(pass.length < 6 || confirmpass.length < 6){
             alert("Passwords must be at least 6 characters long.");
         }else{
             const promise = auth.createUserWithEmailAndPassword(email,pass);
@@ -69,26 +68,4 @@
         }
 
     });
-/*
-    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
-    // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-    // ...
-    });
-
-    // Create User
-    firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
-    // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-    });
-
-    firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-        }).catch(function(error) {
-        // An error happened.
-        });
-*/
-
 }());
