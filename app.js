@@ -24,7 +24,6 @@
         const email = txtEmail.value;
         const pass = txtPassword.value;
         const auth = firebase.auth();
-
         //Sign in
         const promise = auth.signInWithEmailAndPassword(email,pass);
         promise.catch(e => console.log(e.message));
@@ -52,7 +51,7 @@
         }
         
     });
-    
+
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
     });
@@ -68,4 +67,27 @@
         }
 
     });
+/*
+    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+    // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    // ...
+    });
+
+    // Create User
+    firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+    // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    });
+
+
+    firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+        }).catch(function(error) {
+        // An error happened.
+        });
+*/
+
 }());
