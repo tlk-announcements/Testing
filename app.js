@@ -49,40 +49,12 @@
             const promise = auth.createUserWithEmailAndPassword(email,pass)
             promise.catch(e => console.log(e.message));
                 alert("Email in use")
-        }else if(email != auth){
+        }else(email == auth);
             const promise = auth.createUserWithEmailAndPassword(email,pass);
-            promise.catch(e => console.log(e.message));
-                
-        }
+            promise.catch(e => console.log(e.message));   
       
     });
-/*
-    Firebase = "https://tlk-announcements-a133d.firebaseio.com"
-    var ref = new Firebase("https://tlk-announcements-a133d.firebaseio.com");
-    ref.once("value", function(snapshot) {
-      // The callback function will get called twice, once for "fred" and once for "barney"
-      snapshot.forEach(function(childSnapshot) {
-        // key will be "fred" the first time and "barney" the second time
-        var key = childSnapshot.key();
-    
-        // childData will be the actual contents of the child
-        var childData = childSnapshot.val();
-      });
-    });
-    var users = ref.child("users");
-    var userId = document.getElementById("email").value;
 
-    users.once('value', function(snapshot) {
-        var exists = false;
-        snapshot.forEach(function(childSnapshot){
-            if(userId === childSnapshot.val().email){
-                exists = true; 
-                alert("Email already in use, try another email")    
-            }
-        })
-        userExistsCallback(userId, exists);
-    });
-*/
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
     });
@@ -92,33 +64,11 @@
         if (firebaseUser) {
             console.log(firebaseUser);
             btnLogout.classList.remove('hide');
-        } else {
+        }else{
             console.log('not logged in');
             btnLogout.classList.add('hide');
         }
 
     }); 
-/*
-    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
-    // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-    // ...
-    });
-
-    // Create User
-    firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
-    // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-    });
-
-
-    firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-        }).catch(function(error) {
-        // An error happened.
-        });
-*/
 
 }());
