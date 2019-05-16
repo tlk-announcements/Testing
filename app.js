@@ -45,13 +45,10 @@
             alert("Wrong code. Try again.")
         }else if(pass.length < 6 || confirmpass.length < 6){
             alert("Passwords must be at least 6 characters long.");
-        }else if(email != auth) {
-            const promise = auth.createUserWithEmailAndPassword(email,pass)
-            promise.catch(e => console.log(e.message));
-                alert("Email in use")
-        }else(email == auth);
+        }else {
             const promise = auth.createUserWithEmailAndPassword(email,pass);
-            promise.catch(e => console.log(e.message));   
+            promise.catch(e => console.log(e.message));
+        } 
       
     });
 
